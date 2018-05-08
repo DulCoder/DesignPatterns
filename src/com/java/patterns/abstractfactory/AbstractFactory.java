@@ -67,7 +67,6 @@ public class AbstractFactory {
         //反射方式(可省略工厂接口和众多实现类)
         String dragon = "com.java.patterns.abstractfactory.dragonImpl.";  //骁龙实现类包名
         String mtk = "com.java.patterns.abstractfactory.mtkImpl.";   //联发科实现类包名
-
         try {
             DragonChipVersion miDragon = (DragonChipVersion) ReflectFactory.getPhone(dragon + "MiDragon");
             miDragon.showPhone();
