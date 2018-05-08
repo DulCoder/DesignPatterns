@@ -68,15 +68,22 @@ public class AbstractFactory {
         String dragon = "com.java.patterns.abstractfactory.dragonImpl.";  //骁龙实现类包名
         String mtk = "com.java.patterns.abstractfactory.mtkImpl.";   //联发科实现类包名
 
-        DragonChipVersion miDragon = (DragonChipVersion) ReflectFactory.getPhone(dragon + "MiDragon");
-        miDragon.showPhone();
-        MTKChipVersion miMTK = (MTKChipVersion) ReflectFactory.getPhone(mtk + "MiMTK");
-        miMTK.showPhone();
+        try {
+            DragonChipVersion miDragon = (DragonChipVersion) ReflectFactory.getPhone(dragon + "MiDragon");
+            miDragon.showPhone();
+            MTKChipVersion miMTK = (MTKChipVersion) ReflectFactory.getPhone(mtk + "MiMTK");
+            miMTK.showPhone();
 
-        DragonChipVersion meizuDragon = (DragonChipVersion) ReflectFactory.getPhone(dragon + "MeizuDragon");
-        meizuDragon.showPhone();
-        MTKChipVersion meizuMTK = (MTKChipVersion) ReflectFactory.getPhone(mtk + "MeizuMTK");
-        meizuMTK.showPhone();
+            DragonChipVersion meizuDragon = (DragonChipVersion) ReflectFactory.getPhone(dragon + "MeizuDragon");
+            meizuDragon.showPhone();
+            MTKChipVersion meizuMTK = (MTKChipVersion) ReflectFactory.getPhone(mtk + "MeizuMTK");
+            meizuMTK.showPhone();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            System.out.println("类型转换异常！");
+        }catch (Exception e){
+            System.out.println("未知异常！");
+        }
 
     }
 
